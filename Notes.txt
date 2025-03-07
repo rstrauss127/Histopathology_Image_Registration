@@ -1,0 +1,48 @@
+Given slides of liver cells. There are 2 general cases: 
+	Healthy (Normal) liver - 12 images -   6 sets of images at 1.25 and 2.0 magnification levels - image sizes range 1796-2605 (KBs)
+	Non-healthy (APAP)     - 22 images -  11 sets of images at 1.25 and 2.0 magnification levels - image sizes range 1883-4048 (KBs)
+
+	Each set has 1.25x and 2x magnification of the same region, with different staining methods applied
+	None of the images are the same size
+
+Goals(Need to confirm if these must follow an order:
+	1. Image registration - 2D
+	2. Reconstruct the 3D image
+
+Planned Approach:
+	Feature based detection. - Features being the lobules/holes/cuts OR Intensity??
+	size agnostic 
+
+Questions:
+	Normal Liver
+	1. What do the labels mean? CD3, CD20, CD68, etc
+
+	2. Does CD3 in APAP file and CD3 in Normal file refer to the same area?
+
+	3. Does staining effect intensity from image to image?
+	3a.Was staining done in a specific order and do I need to layer the images in that order to 3D reconstruct properly?
+
+	4. Does color channel matter?
+
+	5. Are these images considered 3D volumetric data?
+
+	6. Segmentation
+
+Steps taken:
+
+1. Data Collection
+	Download/extract images
+	Organized - 
+		Create folders for each stain type within the Healthy/Non-Healthy groups. 
+		Distributed images into folders manually.
+2. Researched tools and methodology relevant to the goal at hand
+	Dlib
+		shape_predictor, train_shape_predictor,distance_to_line, 
+		find_bright_lines, find_dark_lines, find_line_endpoints, sobel_edge_detector
+		find_candidate_object_locations
+3. Ideas to researchs
+	image gradient
+	instensity
+	segmentation
+
+		
